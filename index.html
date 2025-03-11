@@ -26,7 +26,7 @@
     /* Header Section with Video Background */
     .header {
       position: relative;
-      height: 60vh; /* Adjust the height as needed */
+      height: 60vh; /* Default height for desktop */
       overflow: hidden;
     }
 
@@ -70,7 +70,6 @@
       text-align: center;
     }
 
-    /* Less heavy look for this 'definition' text */
     .main-content h2 {
       font-size: 2rem;
       margin-bottom: 20px;
@@ -114,18 +113,89 @@
       text-decoration: underline;
     }
 
-    /* Responsive adjustments */
-    @media (max-width: 768px) {
+    /*
+      Responsive adjustments:
+      Breakpoints:
+        - Up to 480px (small phones)
+        - 481px to 768px (bigger phones or small tablets)
+        - 769px to 1024px (landscape tablets like iPads)
+        - 1025px and above (larger desktops)
+    */
+
+    /* Phones (small) */
+    @media (max-width: 480px) {
+      .header {
+        height: 40vh; /* Slightly shorter header for smaller screens */
+      }
+      .header .overlay h1 {
+        font-size: 2rem;
+      }
+      .main-content h2 {
+        font-size: 1.5rem;
+      }
+      .main-content p {
+        font-size: 1rem;
+        padding: 0 10px;
+      }
+      .footer {
+        font-size: 0.65rem;
+      }
+    }
+
+    /* Bigger phones and small tablets */
+    @media (min-width: 481px) and (max-width: 768px) {
+      .header {
+        height: 50vh;
+      }
       .header .overlay h1 {
         font-size: 2.5rem;
       }
-
       .main-content h2 {
         font-size: 1.75rem;
       }
-
       .main-content p {
-        font-size: 1rem;
+        font-size: 1.1rem;
+      }
+      .footer {
+        font-size: 0.7rem;
+      }
+    }
+
+    /* Tablets (landscape orientation and iPads in portrait) */
+    @media (min-width: 769px) and (max-width: 1024px) {
+      .header {
+        height: 55vh;
+      }
+      .header .overlay h1 {
+        font-size: 3rem;
+      }
+      .main-content h2 {
+        font-size: 1.8rem;
+      }
+      .main-content p {
+        font-size: 1.2rem;
+      }
+      .footer {
+        font-size: 0.75rem;
+      }
+    }
+
+    /* Desktops and larger screens */
+    @media (min-width: 1025px) {
+      .header {
+        height: 60vh;
+      }
+      .header .overlay h1 {
+        font-size: 4rem;
+      }
+      .main-content h2 {
+        font-size: 2rem;
+      }
+      .main-content p {
+        font-size: 1.25rem;
+      }
+      .footer {
+        font-size: 0.75rem;
       }
     }
   </style>
@@ -135,10 +205,7 @@
   <header class="header">
     <video autoplay loop muted playsinline preload="auto">
       <!-- Replace with your hosted video file path/URL -->
-      <source
-        src="ship.mp4"
-        type="video/mp4"
-      />
+      <source src="ship.mp4" type="video/mp4" />
       Your browser does not support the video tag.
     </video>
     <div class="overlay">
